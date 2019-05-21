@@ -26,7 +26,14 @@ STDLIB_FILE=$(mktemp -t stdlib.XXXXX)
 curl --silent --retry 5 --retry-max-time 15 'https://lang-common.s3.amazonaws.com/buildpack-stdlib/v7/stdlib.sh' > "$STDLIB_FILE"
 
 echo "-----> Installing unoconv"
-apt-get install unoconv
+cd /opt
+sudo wget https://raw.githubusercontent.com/dagwieers/unoconv/master/unoconv
+sudo chmod ugo+x /opt/unoconv
+sudo add-apt-repository ppa:libreoffice/ppa
+sudo apt-get update
+sudo apt-get install libreoffice
+sudo chown www-data /var/www
+sudo ln -s /opt/unoconv /usr/bin/
 echo "-----> Finished installing unoconv"
 
 # shellcheck source=/dev/null
