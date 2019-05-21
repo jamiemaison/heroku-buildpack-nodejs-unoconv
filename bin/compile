@@ -26,9 +26,7 @@ STDLIB_FILE=$(mktemp -t stdlib.XXXXX)
 curl --silent --retry 5 --retry-max-time 15 'https://lang-common.s3.amazonaws.com/buildpack-stdlib/v7/stdlib.sh' > "$STDLIB_FILE"
 
 echo "-----> Installing unoconv"
-cd /opt
 apt-get install unoconv
-
 echo "-----> Finished installing unoconv"
 
 # shellcheck source=/dev/null
