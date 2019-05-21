@@ -27,13 +27,7 @@ curl --silent --retry 5 --retry-max-time 15 'https://lang-common.s3.amazonaws.co
 
 echo "-----> Installing unoconv"
 cd /opt
-sudo wget https://raw.githubusercontent.com/dagwieers/unoconv/master/unoconv
-sudo chmod ugo+x /opt/unoconv
-sudo add-apt-repository ppa:libreoffice/ppa
-sudo apt-get update
-sudo apt-get install libreoffice
-sudo chown www-data /var/www
-sudo ln -s /opt/unoconv /usr/bin/
+apt-get install unoconv
 echo "-----> Finished installing unoconv"
 
 # shellcheck source=/dev/null
